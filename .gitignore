@@ -1,0 +1,17 @@
+# Dados do servidor e segredos: nunca vão para o repositório
+privado/*
+!privado/.htaccess
+uploads/*
+!uploads/.htaccess
+
+# Pacotes de deploy (trazem o código de instalação do admin)
+_deploy/
+
+# Configuração local de ferramentas
+.claude/
+
+# Sistema
+*.tmp
+Thumbs.db
+desktop.ini
+.DS_Store

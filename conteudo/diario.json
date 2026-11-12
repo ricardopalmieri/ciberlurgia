@@ -1,0 +1,15 @@
+[
+    {
+        "slug": "bancada-aberta",
+        "titulo": "A bancada abriu na rede",
+        "data": "2026-11-12",
+        "resumo": "Primeira versão do site: Linkoteca, ferramentas livres e o manifesto.",
+        "corpo": "Esta é a primeira versão do site da Ciberlurgia. Ainda é protótipo, então tem peça fora do lugar.\n\n## O que já tem\n\n- A **Linkoteca**, com os endereços para tirar certidão, achar edital e acompanhar os conselhos do Grande ABC.\n- **Ferramentas** livres que rodam no navegador.\n- O **manifesto** e quem está na bancada.\n\nAchou um link quebrado? Conta pra gente.",
+        "imagem": "",
+        "tags": [
+            "site",
+            "linkoteca"
+        ],
+        "publicado": true
+    }
+]

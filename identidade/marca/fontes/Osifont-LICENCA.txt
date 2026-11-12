@@ -1,0 +1,5 @@
+Osifont
+Fonte de normógrafo no padrão ISO 3098.
+Origem: https://github.com/hikikomori82/osifont (arquivo osifont-lgpl3fe.ttf)
+Licença: LGPL-3.0 com exceção para fontes (GPL font exception). Uso livre em documentos e sites, sem obrigação de abrir o documento que usa a fonte.
+Arquivo neste projeto: recorte latino em WOFF2, sem outras alterações no desenho.

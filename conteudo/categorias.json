@@ -1,0 +1,44 @@
+[
+    {
+        "slug": "certidoes",
+        "nome": "Certidões",
+        "descricao": "Certidões negativas e de regularidade que quase todo edital pede.",
+        "cor": "forja"
+    },
+    {
+        "slug": "documentos",
+        "nome": "Documentos e cadastros",
+        "descricao": "CNPJ, FGTS, assinatura digital e certificações de instituição cultural.",
+        "cor": "cereja"
+    },
+    {
+        "slug": "portais-conselhos",
+        "nome": "Cultura nas cidades",
+        "descricao": "Portais de cultura, cadastros de artistas e conselhos municipais das sete cidades.",
+        "cor": "brasa"
+    },
+    {
+        "slug": "editais",
+        "nome": "Editais e fomento",
+        "descricao": "Onde saem os editais, os chamamentos e as leis de incentivo.",
+        "cor": "fusao"
+    },
+    {
+        "slug": "diarios-oficiais",
+        "nome": "Diários oficiais",
+        "descricao": "Resultados, retificações e nomeações saem primeiro aqui.",
+        "cor": "arco"
+    },
+    {
+        "slug": "transparencia",
+        "nome": "Transparência e participação",
+        "descricao": "Para pedir informação, acompanhar o dinheiro e fiscalizar.",
+        "cor": "arco"
+    },
+    {
+        "slug": "recursos",
+        "nome": "Formação e outros recursos",
+        "descricao": "Cursos, certificações e consultas que ajudam no dia a dia.",
+        "cor": "brasa"
+    }
+]

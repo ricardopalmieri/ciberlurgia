@@ -1,0 +1,954 @@
+[
+    {
+        "id": "cnd-federal-receita-federal-e-pgfn",
+        "titulo": "CND Federal (Receita Federal e PGFN)",
+        "url": "https://solucoes.receita.fazenda.gov.br/servicos/certidao/",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Brasil",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "certidao-estadual-sp-sefaz-pge",
+        "titulo": "Certidão Estadual SP (Sefaz/PGE)",
+        "url": "https://portal.fazenda.sp.gov.br/servicos/certidoes/Paginas/Certidao-Unica-de-Debitos-Sefaz-PGE.aspx",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Estado de SP",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "cndt-debitos-trabalhistas",
+        "titulo": "CNDT (débitos trabalhistas)",
+        "url": "https://cndt-certidao.tst.jus.br/",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Brasil",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "certidao-de-apenados-tcesp",
+        "titulo": "Certidão de Apenados (TCESP)",
+        "url": "https://www.tce.sp.gov.br/certidoes",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Estado de SP",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certidao-de-inidoneidade-tcu",
+        "titulo": "Certidão de Inidoneidade (TCU)",
+        "url": "https://certidoes.apps.tcu.gov.br/e",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Brasil",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "consulta-consolidada-de-pessoa-juridica-tcu",
+        "titulo": "Consulta Consolidada de Pessoa Jurídica (TCU)",
+        "url": "https://portal.tcu.gov.br/carta-de-servicos/certidoes/consulta-consolidada-de-pessoa-juridica",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Brasil",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certidao-de-distribuicao-civel-e-criminal-tjsp",
+        "titulo": "Certidão de Distribuição Cível e Criminal (TJSP)",
+        "url": "https://portal.tjsp.jus.br/Certidoes/Certidoes/CertidoesDuvidasFrequentes",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Estado de SP",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "quitacao-eleitoral",
+        "titulo": "Quitação eleitoral",
+        "url": "https://www.tre-sp.jus.br/servicos-eleitorais/certidoes",
+        "descricao": "",
+        "categoria": "certidoes",
+        "cidade": "Estado de SP",
+        "tags": [
+            "certidão",
+            "edital",
+            "regularidade"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certidao-correcional-cgu",
+        "titulo": "Certidão Correcional CGU",
+        "url": "https://certidoes.cgu.gov.br/",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "regularidade-do-fgts-crf",
+        "titulo": "Regularidade do FGTS (CRF)",
+        "url": "https://consulta-crf.caixa.gov.br/consultacrf/pages/consultaEmpregador.jsf",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "comprovante-de-inscricao-e-situacao-cadastral-do-cnpj",
+        "titulo": "Comprovante de inscrição e situação cadastral do CNPJ",
+        "url": "https://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certidoes-e-consultas-do-tcu",
+        "titulo": "Certidões e consultas do TCU",
+        "url": "https://portal.tcu.gov.br/carta-de-servicos/certidoes",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certificado-de-reconhecimento-de-instituicao-cultural-cric-s",
+        "titulo": "Certificado de Reconhecimento de Instituição Cultural (CRIC-SP)",
+        "url": "https://www.cultura.sp.gov.br/sec_cultura/Servi%C3%A7os/CRIC",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Estado de SP",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certificacao-de-ponto-ou-pontao-de-cultura",
+        "titulo": "Certificação de Ponto ou Pontão de Cultura",
+        "url": "https://culturaviva.cultura.gov.br/",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "assinatura-digital-de-documentos",
+        "titulo": "Assinatura digital de documentos",
+        "url": "https://assinador.iti.br/",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "validacao-de-documentos-assinados-digitalmente",
+        "titulo": "Validação de documentos assinados digitalmente",
+        "url": "https://validar.iti.gov.br/",
+        "descricao": "",
+        "categoria": "documentos",
+        "cidade": "Brasil",
+        "tags": [
+            "documento",
+            "cadastro"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "culturaz-cadastros-e-editais-santo-andre",
+        "titulo": "CulturAZ: cadastros e editais (Santo André)",
+        "url": "https://culturaz.santoandre.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Santo André",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselho-municipal-de-politicas-culturais-santo-andre",
+        "titulo": "Conselho Municipal de Políticas Culturais (Santo André)",
+        "url": "https://culturaz.santoandre.sp.gov.br/projeto/112/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Santo André",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "pnab-santo-andre",
+        "titulo": "PNAB Santo André",
+        "url": "https://www3.santoandre.sp.gov.br/cultura/pnab/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Santo André",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselhos-culturais-e-patrimonio-santo-andre",
+        "titulo": "Conselhos culturais e patrimônio (Santo André)",
+        "url": "https://www3.santoandre.sp.gov.br/cultura/conselhos/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Santo André",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "editais-e-resultados-da-cultura-sao-bernardo-do-campo",
+        "titulo": "Editais e resultados da Cultura (São Bernardo do Campo)",
+        "url": "https://www.saobernardo.sp.gov.br/web/cultura/editais",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Bernardo do Campo",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselho-municipal-de-politicas-culturais-sao-bernardo-do-ca",
+        "titulo": "Conselho Municipal de Políticas Culturais (São Bernardo do Campo)",
+        "url": "https://www.saobernardo.sp.gov.br/web/cultura/conselho-municipal-de-politicas-culturais",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Bernardo do Campo",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "cadastro-de-artistas-sao-bernardo-do-campo",
+        "titulo": "Cadastro de artistas (São Bernardo do Campo)",
+        "url": "https://www.saobernardo.sp.gov.br/web/cultura/cadastro-de-artistas",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Bernardo do Campo",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "mapa-cultural-sbc-sao-bernardo-do-campo",
+        "titulo": "Mapa Cultural SBC (São Bernardo do Campo)",
+        "url": "https://mapacultural.saobernardo.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Bernardo do Campo",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "portal-da-cultura-sao-caetano-do-sul",
+        "titulo": "Portal da Cultura (São Caetano do Sul)",
+        "url": "https://cultura.saocaetanodosul.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Caetano do Sul",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "concult-atas-e-reunioes-sao-caetano-do-sul",
+        "titulo": "CONCULT: atas e reuniões (São Caetano do Sul)",
+        "url": "https://cultura.saocaetanodosul.sp.gov.br/service/11",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Caetano do Sul",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "informacoes-institucionais-do-concult-sao-caetano-do-sul",
+        "titulo": "Informações institucionais do CONCULT (São Caetano do Sul)",
+        "url": "https://www.saocaetanodosul.sp.gov.br/conselhodetalhe/7",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "São Caetano do Sul",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "pnab-e-documentos-de-execucao-diadema",
+        "titulo": "PNAB e documentos de execução (Diadema)",
+        "url": "https://portal.diadema.sp.gov.br/cultura-pnab-lei-aldir-blanc-2/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Diadema",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselhos-de-cultura-diadema",
+        "titulo": "Conselhos de Cultura (Diadema)",
+        "url": "https://portal.diadema.sp.gov.br/cultura/cultura-conselhos/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Diadema",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "central-de-links-da-secretaria-de-cultura-diadema",
+        "titulo": "Central de links da Secretaria de Cultura (Diadema)",
+        "url": "https://linktr.ee/sec.culturadiadema",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Diadema",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "sipad-sistema-de-editais-diadema",
+        "titulo": "SIPAD: sistema de editais (Diadema)",
+        "url": "https://sipad.diadema.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Diadema",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "mapa-cultural-maua",
+        "titulo": "Mapa Cultural Mauá",
+        "url": "https://mapacultural.maua.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Mauá",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "agenda-cultural-maua",
+        "titulo": "Agenda Cultural (Mauá)",
+        "url": "https://agendacultural.maua.sp.gov.br/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Mauá",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "atas-e-publicacoes-do-conselho-de-cultura-no-diario-oficial",
+        "titulo": "Atas e publicações do Conselho de Cultura no Diário Oficial (Mauá)",
+        "url": "https://dom.maua.sp.gov.br/DOM/Filtrar/15?checkbox_local%5B0%5D=5&txtbuscar=&txtdatapublicacao=",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Mauá",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselho-municipal-de-politica-cultural-ribeirao-pires",
+        "titulo": "Conselho Municipal de Política Cultural (Ribeirão Pires)",
+        "url": "https://www.ribeiraopires.sp.gov.br/portal/secretarias-paginas/30/conselho-municipal-de-politica-cultural---cmpc/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Ribeirão Pires",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "editais-pnab-ribeirao-pires",
+        "titulo": "Editais PNAB (Ribeirão Pires)",
+        "url": "https://www.ribeiraopires.sp.gov.br/editais-pnab-ciclo-2/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Ribeirão Pires",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "chamamentos-publicos-ribeirao-pires",
+        "titulo": "Chamamentos públicos (Ribeirão Pires)",
+        "url": "https://www.ribeiraopires.sp.gov.br/portal/editais/5",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Ribeirão Pires",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "cadastro-cultural-smiic-ribeirao-pires",
+        "titulo": "Cadastro Cultural SMIIC (Ribeirão Pires)",
+        "url": "https://turismo.ribeiraopires.sp.gov.br/servicos/cadastro-cultural/39/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Ribeirão Pires",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "secretaria-de-educacao-inovacao-e-cultura-rio-grande-da-serr",
+        "titulo": "Secretaria de Educação, Inovação e Cultura (Rio Grande da Serra)",
+        "url": "https://www.riograndedaserra.sp.gov.br/secretarias/educacao-e-cultura/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Rio Grande da Serra",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "conselho-municipal-de-cultura-rio-grande-da-serra",
+        "titulo": "Conselho Municipal de Cultura (Rio Grande da Serra)",
+        "url": "https://www.riograndedaserra.sp.gov.br/noticia/eleicao-do-conselho-municipal-de-cultura-2025/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Rio Grande da Serra",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "publicacoes-da-prefeitura-rio-grande-da-serra",
+        "titulo": "Publicações da Prefeitura (Rio Grande da Serra)",
+        "url": "https://www.riograndedaserra.sp.gov.br/publicacao/",
+        "descricao": "",
+        "categoria": "portais-conselhos",
+        "cidade": "Rio Grande da Serra",
+        "tags": [
+            "conselho",
+            "cadastro",
+            "prefeitura"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "cultbr-editais",
+        "titulo": "CultBR Editais",
+        "url": "https://culteditais.cultura.gov.br/",
+        "descricao": "Editais da PNAB e inscrições.",
+        "categoria": "editais",
+        "cidade": "Brasil",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "mapa-da-cultura-nacional",
+        "titulo": "Mapa da Cultura Nacional",
+        "url": "https://mapa.cultura.gov.br/",
+        "descricao": "Cadastro de agentes, espaços e oportunidades.",
+        "categoria": "editais",
+        "cidade": "Brasil",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "fomento-cultsp",
+        "titulo": "Fomento CultSP",
+        "url": "https://www.cultura.sp.gov.br/sec_cultura/Fomento/Portal_do_Fomento",
+        "descricao": "ProAC, PNAB estadual, resultados e cadastro de pareceristas.",
+        "categoria": "editais",
+        "cidade": "Estado de SP",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": true,
+        "verificado": ""
+    },
+    {
+        "id": "lei-rouanet",
+        "titulo": "Lei Rouanet",
+        "url": "https://www.gov.br/cultura/pt-br/assuntos/prestacao-de-contas-politicas-culturais/lei-rouanet/",
+        "descricao": "Projetos incentivados, SALIC e orientações.",
+        "categoria": "editais",
+        "cidade": "Brasil",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "rede-cultura-viva",
+        "titulo": "Rede Cultura Viva",
+        "url": "https://culturaviva.cultura.gov.br/",
+        "descricao": "Certificação e mapeamento de Pontos e Pontões.",
+        "categoria": "editais",
+        "cidade": "Brasil",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "consorcio-intermunicipal-grande-abc-licitacoes",
+        "titulo": "Consórcio Intermunicipal Grande ABC: licitações",
+        "url": "https://www.consorcioabc.sp.gov.br/licitacao",
+        "descricao": "Licitações e credenciamentos regionais.",
+        "categoria": "editais",
+        "cidade": "Grande ABC",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "portal-nacional-de-contratacoes-publicas",
+        "titulo": "Portal Nacional de Contratações Públicas",
+        "url": "https://pncp.gov.br/app/editais",
+        "descricao": "Licitações, chamamentos e contratações públicas.",
+        "categoria": "editais",
+        "cidade": "Brasil",
+        "tags": [
+            "edital",
+            "fomento",
+            "financiamento"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-oficial-de-santo-andre",
+        "titulo": "Diário Oficial de Santo André",
+        "url": "https://web.santoandre.sp.gov.br/portal/diario-oficial",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "Santo André",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "noticias-do-municipio-de-sao-bernardo-do-campo",
+        "titulo": "Notícias do Município de São Bernardo do Campo",
+        "url": "https://www.saobernardo.sp.gov.br/noticias-do-municipio",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "São Bernardo do Campo",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-eletronico-de-sao-caetano-do-sul",
+        "titulo": "Diário Eletrônico de São Caetano do Sul",
+        "url": "https://diariooficial.saocaetanodosul.sp.gov.br/",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "São Caetano do Sul",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-oficial-de-diadema",
+        "titulo": "Diário Oficial de Diadema",
+        "url": "https://diariooficial.diadema.sp.gov.br/",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "Diadema",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-oficial-de-maua",
+        "titulo": "Diário Oficial de Mauá",
+        "url": "https://dom.maua.sp.gov.br/",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "Mauá",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-eletronico-de-ribeirao-pires",
+        "titulo": "Diário Eletrônico de Ribeirão Pires",
+        "url": "https://www.ribeiraopires.sp.gov.br/portal/diario-oficial",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "Ribeirão Pires",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "diario-eletronico-de-rio-grande-da-serra",
+        "titulo": "Diário Eletrônico de Rio Grande da Serra",
+        "url": "https://imprensaoficialmunicipal.com.br/riograndedaserra",
+        "descricao": "",
+        "categoria": "diarios-oficiais",
+        "cidade": "Rio Grande da Serra",
+        "tags": [
+            "diário oficial",
+            "resultado"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "fala-br",
+        "titulo": "Fala.BR",
+        "url": "https://falabr.cgu.gov.br/",
+        "descricao": "Pedidos pela Lei de Acesso à Informação, reclamações e denúncias a órgãos participantes.",
+        "categoria": "transparencia",
+        "cidade": "Brasil",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "transferencias-federais",
+        "titulo": "Transferências federais",
+        "url": "https://portaldatransparencia.gov.br/transferencias/consulta",
+        "descricao": "Consultar valores transferidos a municípios e instituições.",
+        "categoria": "transparencia",
+        "cidade": "Brasil",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "transparencia-por-municipio",
+        "titulo": "Transparência por município",
+        "url": "https://portaldatransparencia.gov.br/localidades",
+        "descricao": "Comparar dados federais entre cidades.",
+        "categoria": "transparencia",
+        "cidade": "Brasil",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "transparencia-tcesp",
+        "titulo": "Transparência TCESP",
+        "url": "https://www.tce.sp.gov.br/portais-transparencia",
+        "descricao": "Fiscalização, auditoria e contas públicas.",
+        "categoria": "transparencia",
+        "cidade": "Estado de SP",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "gt-cultura-do-consorcio-abc",
+        "titulo": "GT Cultura do Consórcio ABC",
+        "url": "https://www.consorcioabc.sp.gov.br/pagina/89/nucleo-inclusao-social-e-direitos-humanos/sub-pagina/35/",
+        "descricao": "Articulação regional de políticas culturais.",
+        "categoria": "transparencia",
+        "cidade": "Grande ABC",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "portal-nacional-de-contratacoes-publicas-2",
+        "titulo": "Portal Nacional de Contratações Públicas",
+        "url": "https://www.gov.br/pncp/pt-br/",
+        "descricao": "Consultar contratações, fornecedores e editais públicos.",
+        "categoria": "transparencia",
+        "cidade": "Brasil",
+        "tags": [
+            "transparência",
+            "lai",
+            "fiscalização"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "cric-de-sao-paulo",
+        "titulo": "CRIC de São Paulo",
+        "url": "https://www.cultura.sp.gov.br/sec_cultura/Servi%C3%A7os/CRIC",
+        "descricao": "reconhecimento formal de instituições culturais, quando aplicável.",
+        "categoria": "recursos",
+        "cidade": "Estado de SP",
+        "tags": [
+            "formação"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "certificacao-cultura-viva",
+        "titulo": "Certificação Cultura Viva",
+        "url": "https://www.gov.br/pt-br/servicos/obter-certificado-de-ponto-ou-pontao-de-cultura",
+        "descricao": "orientações para coletivos e organizações sem fins lucrativos.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "formação"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "escola-paulista-de-contas-publicas",
+        "titulo": "Escola Paulista de Contas Públicas",
+        "url": "https://www.tce.sp.gov.br/epcp",
+        "descricao": "cursos e formações sobre gestão, fiscalização e administração pública.",
+        "categoria": "recursos",
+        "cidade": "Estado de SP",
+        "tags": [
+            "formação"
+        ],
+        "destaque": false,
+        "verificado": ""
+    },
+    {
+        "id": "busca-de-pedidos-pela-lai",
+        "titulo": "Busca de pedidos pela LAI",
+        "url": "https://www.gov.br/acessoainformacao/pt-br/assuntos/busca-de-pedidos-e-respostas/busca-de-pedidos-e-respostas",
+        "descricao": "pedidos e respostas já publicados por órgãos federais.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "formação"
+        ],
+        "destaque": false,
+        "verificado": ""
+    }
+]

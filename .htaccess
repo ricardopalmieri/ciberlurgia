@@ -1,0 +1,53 @@
+# Ciberlurgia: Hostinger (Apache/LiteSpeed)
+Options -Indexes -MultiViews
+DirectoryIndex index.php index.html
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Funciona na raiz do domínio ou em qualquer subpasta: todas as regras abaixo são relativas a esta pasta.
+  # Só se o servidor reclamar de caminho (ex.: erro 404 em tudo ou loop de redirecionamento), descomente e
+  # ponha a pasta do site, com barra no começo e no fim:
+  # RewriteBase /pontodigital/cccd/
+
+  # Força HTTPS (ativar o SSL gratuito no hPanel antes)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Pastas internas e arquivos ocultos nunca são servidos
+  RewriteRule ^(app|conteudo|privado|_fonte|docs)(/|$) - [F,L]
+  RewriteRule (^|/)\.(?!well-known/) - [F,L]
+  RewriteRule \.(md|json|zip|log|bak|sql|ini|lock|tmp)$ - [F,L,NC]
+
+  # Uploads: só imagens
+  RewriteRule ^uploads/(?!.*\.(webp|jpe?g|png)$) - [F,L,NC]
+
+  # Qualquer PHP que não seja o roteador é bloqueado
+  RewriteRule ^(?!index\.php$).*\.(php\d?|phtml|phar)$ - [F,L,NC]
+
+  # /identidade/ é uma pasta real, mas a página é montada pelo PHP (manual dentro do site)
+  RewriteRule ^identidade/?$ index.php [L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  <FilesMatch "\.(woff2|webp|png|jpe?g|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

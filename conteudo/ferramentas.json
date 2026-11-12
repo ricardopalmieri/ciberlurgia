@@ -1,0 +1,52 @@
+[
+    {
+        "id": "ntvct",
+        "titulo": "Editor de vídeo",
+        "url": "https://noisetupi.com.br/laboratorio/NTVCT/",
+        "descricao": "Corta, junta e exporta vídeo direto no navegador.",
+        "imagem": "",
+        "autoria": "Laboratório Noisetupi",
+        "tags": [
+            "vídeo",
+            "edição"
+        ]
+    },
+    {
+        "id": "ntsampler",
+        "titulo": "Sampler de áudio",
+        "url": "https://noisetupi.com.br/laboratorio/ntSampler_v2/",
+        "descricao": "Grava, recorta e toca amostras de som para montar batidas e paisagens sonoras.",
+        "imagem": "",
+        "autoria": "Laboratório Noisetupi",
+        "tags": [
+            "áudio",
+            "música",
+            "sampler"
+        ]
+    },
+    {
+        "id": "ntzine",
+        "titulo": "Editor de zine",
+        "url": "https://noisetupi.com.br/laboratorio/ntZineEditor/",
+        "descricao": "Monta páginas de zine com texto e imagem, pronto para imprimir e dobrar.",
+        "imagem": "",
+        "autoria": "Laboratório Noisetupi",
+        "tags": [
+            "zine",
+            "publicação",
+            "impressão"
+        ]
+    },
+    {
+        "id": "qrgen",
+        "titulo": "Gerador de QR Code",
+        "url": "https://noisetupi.com.br/qrgen/",
+        "descricao": "Transforma um link ou texto em QR Code para cartaz, panfleto e convite.",
+        "imagem": "",
+        "autoria": "Laboratório Noisetupi",
+        "tags": [
+            "qr code",
+            "divulgação"
+        ]
+    }
+]

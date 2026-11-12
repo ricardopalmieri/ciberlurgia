@@ -1,0 +1,98 @@
+/* Guia de padrões (/identidade/padroes/). Só layout do guia: os componentes vêm de cbl.css. */
+
+.pp-intro { max-width: 62ch; font-size: 17px; margin: 0 0 24px; }
+.pp-nota { font-size: 15px; color: var(--grafite); margin: 16px 0 0; max-width: 70ch; }
+.pp-nota code, .pp-lista code, .pp-fontes code, .pp-dl code, .pp-checklist code { font-size: .9em; }
+.pp-lista, .pp-checklist, .pp-fontes { padding-left: 1.2em; margin: 0 0 8px; }
+.pp-lista li, .pp-fontes li { margin-bottom: 8px; }
+.pp-lista--curta { margin-top: 20px; }
+.faixa-preta .pp-nota { color: #c4c3bd; }
+.pp-vivo > .botao, .pp-faixa > .botao, .pp-faixa > .botao-modo { justify-self: start; }
+.pp-vivo .botao { border-color: var(--preto); box-shadow: var(--sombra-p); }
+.pp-vivo .botao:hover { box-shadow: 3px 3px 0 var(--preto); }
+.pp-vivo .faixa-preta { color: var(--giz); }
+.pp-vivo .faixa-preta .botao { border-color: var(--giz); box-shadow: 2px 2px 0 var(--forja); }
+.pp-vivo .carimbo, .pp-vivo .cota { color: inherit; }
+
+/* Índice */
+.pp-topo { padding-block: 16px; }
+.pp-indice ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+.pp-indice a { display: flex; gap: 12px; align-items: baseline; color: var(--preto); min-height: var(--toque); padding: 4px 10px; background: var(--giz); border: var(--borda); text-decoration: none; font-family: var(--f-geo); font-weight: 500; }
+.pp-indice a:hover { background: #fff; }
+.pp-indice .n { font-family: var(--f-tec); font-size: 14px; color: var(--grafite); min-width: 2.2em; }
+
+/* Exemplos: amostra viva em cima, HTML para copiar embaixo */
+.pp-exemplo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; margin-block: 18px; min-width: 0; }
+.pp-exemplo > .cota { margin: 0; }
+.pp-vivo { color: var(--preto); display: grid; gap: 12px; padding: 16px; background: var(--concreto); border: var(--borda); min-width: 0; }
+.pp-vivo > * { min-width: 0; }
+.pp-codigo { margin: 0; border: 1px solid var(--grafite); background: transparent; }
+.pp-codigo summary { cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 28px; padding: 2px 10px; font-family: var(--f-tec); font-size: 13px; letter-spacing: .04em; text-transform: uppercase; color: var(--grafite); list-style: none; position: relative; }
+.pp-codigo summary::-webkit-details-marker { display: none; }
+.pp-codigo summary::before { content: "+"; font-weight: 700; }
+.pp-codigo[open] summary::before { content: "−"; }
+.pp-codigo summary::after { content: ""; position: absolute; inset: -8px 0; }
+.pp-codigo pre { margin: 0; padding: 12px 14px; background: var(--preto); color: var(--giz); border-top: 1px solid var(--grafite); overflow-x: auto; font-family: var(--f-tec); font-size: 13px; line-height: 1.5; white-space: pre; tab-size: 2; }
+.pp-codigo code { font-family: inherit; color: inherit; }
+.faixa-preta .pp-codigo { border-color: var(--cinza); }
+.faixa-preta .pp-codigo summary { color: #c4c3bd; }
+.pp-linha { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0; }
+.pp-faixa { padding: 14px 16px; display: grid; gap: 6px; }
+.pp-faixa p { margin: 0; }
+.pp-dl { margin: 28px 0 0; display: grid; gap: 12px; }
+.pp-dl > div { display: grid; gap: 4px; padding: 12px 14px; background: var(--giz); color: var(--preto); border: var(--borda); }
+.pp-dl dt { font-family: var(--f-geo); font-weight: 700; }
+.pp-dl dd { margin: 0; }
+
+/* Cores */
+.pp-cores { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+.pp-cor { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 14px; padding: 12px; background: var(--giz); border: var(--borda); }
+.pp-cor__amostra { display: block; width: 72px; height: 72px; border: var(--borda); }
+.pp-cor__nome { margin: 0; font-family: var(--f-geo); font-weight: 700; }
+.pp-cor__nome code { font-weight: 400; font-size: 13px; }
+.pp-cor p { margin: 0 0 4px; font-size: 15px; }
+.pp-regra { padding: 16px; border: var(--borda); background: var(--preto); }
+.pp-regra p { margin: 0; }
+.pp-regra--nao { background: var(--giz); }
+.pp-txt-forja { font-family: var(--f-geo); font-weight: 700; font-size: 24px; color: var(--forja); }
+.pp-txt-forja-pequeno { font-size: 15px; color: var(--grafite); padding-left: 10px; border-left: 6px solid var(--forja); }
+
+/* Tipografia */
+.pp-f-estencil { font-family: var(--f-estencil); }
+.pp-f-geo { font-family: var(--f-geo); }
+.pp-f-tec { font-family: var(--f-tec); }
+.pp-f-texto { font-family: var(--f-texto); }
+.pp-fontes { list-style: none; padding: 0; margin: 0 0 8px; display: grid; gap: 6px; }
+.pp-fontes li { margin: 0; }
+
+/* Gota */
+.pp-vivo:has(> .pp-gota) { display: flex; flex-wrap: wrap; gap: 16px 20px; }
+.pp-gota { margin: 0; display: grid; justify-items: center; gap: 8px; width: 120px; }
+.pp-gota .gota { width: 100%; }
+.pp-gota figcaption { margin: 0; text-align: center; word-break: break-all; }
+.pp-gota-link { display: grid; justify-items: center; gap: 8px; width: 150px; text-decoration: none; font-family: var(--f-geo); font-weight: 700; text-align: center; }
+.pp-gota-link .gota { width: 100%; }
+
+/* Cartões e listas dentro das amostras */
+.pp-vivo .cartao { max-width: 300px; }
+.pp-vivo .resultados { margin: 0; }
+.pp-vivo .procurados { margin: 0; }
+.pp-vivo .carrossel { padding-inline: 0; max-width: 340px; }
+
+/* Tabela das coleções */
+.pp-tabela-wrap { overflow-x: auto; border: var(--borda); background: var(--giz); }
+.pp-tabela { width: 100%; border-collapse: collapse; font-size: 15px; }
+.pp-tabela th, .pp-tabela td { padding: 10px; border: 1px solid var(--cinza); text-align: left; vertical-align: top; }
+.pp-tabela thead th { background: var(--preto); color: var(--giz); font-family: var(--f-geo); font-weight: 700; }
+.pp-tabela tbody th { font-weight: 400; white-space: nowrap; }
+
+/* Checagem */
+.pp-checklist { list-style: none; padding: 0; display: grid; gap: 12px; }
+.pp-checklist li { position: relative; padding-left: 36px; margin: 0; }
+.pp-checklist li::before { content: ""; position: absolute; left: 0; top: 3px; width: 20px; height: 20px; border: var(--borda); background: var(--giz); }
+
+@media (max-width: 560px) {
+  .pp-vivo { padding: 16px; }
+  .pp-cor { grid-template-columns: 56px minmax(0, 1fr); }
+  .pp-cor__amostra { width: 56px; height: 56px; }
+  }

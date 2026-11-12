@@ -1,0 +1,176 @@
+/* Ciberlurgia: mapa de navegação (3D e leve 2D) e transições.
+   Carregado depois de cbl.css. Referência visual: manual de identidade, seção "Linguagem 3D".
+   Sem JS o mapa fica escondido (atributo hidden) e a página segue como HTML comum. */
+
+/* ---------- Mapa: tela cheia logo abaixo do topo ---------- */
+.mapa {
+  position: relative; isolation: isolate; overflow: hidden;
+  height: calc(100svh - var(--topo-h, 64px)); min-height: 460px; max-height: 960px;
+  background: var(--preto); color: var(--giz); border-bottom: 3px solid var(--giz);
+}
+.mapa[hidden] { display: none; }
+.mapa__palco { position: absolute; inset: 0; }
+.mapa__canvas { display: block; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
+.mapa__canvas:active { cursor: grabbing; }
+html[data-mapa="2d"] .mapa__canvas { touch-action: auto; cursor: default; }
+.mapa__canvas[hidden] { display: none; }
+
+/* ---------- Etiquetas: botões de verdade, pretas com texto giz ---------- */
+.mapa__rotulos { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.rotulo-no {
+  position: absolute; left: 0; top: 0; pointer-events: auto; will-change: transform;
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  font-family: var(--f-geo); font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+  line-height: 1.1; text-decoration: none; white-space: nowrap; cursor: pointer;
+  background: var(--preto); color: var(--giz); border: 2px solid var(--giz); border-left-width: 6px;
+  padding: 6px 9px; min-height: 32px; transition: opacity .3s ease;
+}
+.rotulo-no::after { content: ""; position: absolute; inset: -7px; }            /* área de toque de 44 px */
+.rotulo-no[data-cor="forja"] { border-left-color: var(--forja); }
+.rotulo-no[data-cor="cereja"] { border-left-color: #B02020; }
+.rotulo-no[data-cor="brasa"] { border-left-color: var(--brasa); }
+.rotulo-no[data-cor="fusao"] { border-left-color: var(--fusao); }
+.rotulo-no[data-cor="arco"] { border-left-color: var(--arco-claro); }
+.rotulo-no[data-estado="centro"] { border-left-width: 2px; }
+.rotulo-no[data-estado="forja"] { border-color: var(--cinza); border-style: dashed; border-left-width: 2px; color: var(--giz); cursor: help; }
+.rotulo-no:hover, .rotulo-no:focus-visible { background: var(--fusao); color: var(--preto); border-color: var(--fusao); border-style: solid; }
+.rotulo-no:focus-visible { outline: 3px solid var(--giz); outline-offset: 3px; }
+
+/* ---------- Painel do nó, voltar e dica ---------- */
+.mapa__voltar {
+  position: absolute; left: 12px; top: 12px; z-index: 40; display: inline-flex; align-items: center;
+  min-height: 44px; padding: 8px 14px; text-decoration: none;
+  font-family: var(--f-geo); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--preto); color: var(--giz); border: 2px solid var(--giz);
+}
+.mapa__voltar[hidden] { display: none; }
+.mapa__voltar:hover, .mapa__voltar:focus-visible { background: var(--fusao); color: var(--preto); border-color: var(--fusao); }
+.mapa__voltar:focus-visible { outline: 3px solid var(--giz); outline-offset: 3px; }
+
+/* Log digital: 1 a 2 linhas em normógrafo, "> ABERTA · NOME — descrição…" */
+.mapa__info {
+  position: absolute; left: 12px; bottom: 12px; z-index: 40; max-width: min(360px, calc(100% - 24px)); pointer-events: none;
+  padding: 6px 10px; background: rgba(0, 0, 0, .82); color: var(--giz);
+  font-family: var(--f-tec); font-size: 12.5px; line-height: 1.4; letter-spacing: .03em;
+}
+.mapa__info[hidden] { display: none; }
+.mapa__linha { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+.mapa__linha::before { content: "> "; color: var(--fusao); }
+.mapa__estado { text-transform: uppercase; color: var(--fusao); }
+.mapa__estado[data-e="forja"] { color: var(--concreto); }
+.mapa__estado::after { content: " · "; color: var(--cinza); }
+.mapa__nome { font-weight: 400; text-transform: uppercase; color: var(--giz); }
+.mapa__desc { color: var(--giz); }
+.mapa__desc:not([hidden])::before { content: " — "; color: var(--cinza); }
+.mapa__desc[hidden] { display: none; }
+.mapa__dica {
+  position: absolute; right: 12px; top: 14px; z-index: 40; margin: 0; max-width: 28ch; text-align: right; pointer-events: none;
+  font-family: var(--f-tec); font-size: 13px; letter-spacing: .04em; color: var(--giz); background: var(--preto); padding: 4px 8px;
+}
+.mapa__dica[hidden] { display: none; }
+
+/* ---------- Mapa 2D: gotas em CSS, soldas em SVG (sem canvas, nítido em qualquer DPR) ---------- */
+.mapa2d { position: absolute; inset: 0; overflow: hidden; }
+.mapa2d::before {                                   /* grade do manual: 16 px, some nas bordas */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(to right, rgba(74, 74, 71, .8) 1px, transparent 1px), linear-gradient(to bottom, rgba(74, 74, 71, .8) 1px, transparent 1px);
+  background-size: 16px 16px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 52%, #000 25%, transparent 75%); mask-image: radial-gradient(ellipse at 50% 52%, #000 25%, transparent 75%);
+}
+.m2d-fios { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.m2d-fio { stroke: var(--arco-claro); stroke-width: 1.2; fill: none; transition: opacity .6s ease .45s; }
+.m2d-fio[data-fria] { stroke-dasharray: 5 4; opacity: .75; }
+.m2d-pulso {
+  stroke: var(--incand); stroke-width: 3; stroke-linecap: round; fill: none; stroke-dasharray: 3 97; stroke-dashoffset: 3;
+  animation: m2d-pulso 2.8s linear infinite; transition: opacity .6s ease .45s;
+}
+.m2d-pulso[data-inv] { animation-direction: reverse; }
+@keyframes m2d-pulso { to { stroke-dashoffset: -100; } }
+.m2d-no { position: absolute; left: var(--x); top: var(--y); pointer-events: none; transform: translate(-50%, -50%) scale(1); transition: transform .75s cubic-bezier(.2, .9, .3, 1.15); }
+.m2d-gota {
+  position: absolute; inset: 0; pointer-events: auto; cursor: pointer; overflow: hidden;
+  border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;
+  background: radial-gradient(circle at 34% 28%, var(--incand) 0, var(--fusao) 12%, var(--brasa) 42%, var(--forja) 74%, #9A0A04 100%);
+  animation: m2d-lava 9s ease-in-out infinite alternate; transition: transform .25s ease, filter .25s ease;
+}
+.m2d-gota::after {                                  /* ponto quente que passeia dentro do metal */
+  content: ""; position: absolute; left: 14%; top: 10%; width: 46%; height: 46%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 244, 207, .75) 0, rgba(255, 196, 0, 0) 70%);
+  animation: m2d-quente 6.5s ease-in-out infinite alternate;
+}
+.m2d-gota::before { content: ""; position: absolute; inset: -8px; }          /* área de toque maior */
+.m2d-no[data-sem="1"] .m2d-gota { animation-duration: 11s; animation-delay: -3s; }
+.m2d-no[data-sem="2"] .m2d-gota { animation-duration: 8s; animation-delay: -6s; }
+.m2d-no[data-sem="3"] .m2d-gota { animation-duration: 12s; animation-delay: -1s; }
+@keyframes m2d-lava {
+  0% { border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; }
+  33% { border-radius: 44% 56% 40% 60% / 58% 42% 58% 42%; }
+  66% { border-radius: 52% 48% 62% 38% / 40% 60% 46% 54%; }
+  100% { border-radius: 40% 60% 48% 52% / 54% 46% 56% 44%; }
+}
+@keyframes m2d-quente { to { transform: translate(34%, 40%) scale(.8); } }
+.m2d-gota[data-sel], .m2d-forja[data-sel] { transform: scale(1.1); filter: brightness(1.15); }
+.m2d-forja {                                        /* arame frio: área ainda em forja */
+  position: absolute; inset: 0; pointer-events: auto; cursor: help; border-radius: 50%;
+  background: var(--preto); border: 2px dashed var(--cinza); transition: transform .25s ease, border-color .25s ease;
+}
+.m2d-forja::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; }
+.m2d-forja[data-sel] { border-color: var(--fusao); filter: none; }
+.m2d-selo { position: absolute; left: 50%; top: 50%; width: 62%; height: auto; transform: translate(-50%, -50%); pointer-events: none; user-select: none; }
+.mapa2d[data-antes] .m2d-no { transform: translate(-50%, -50%) scale(0) !important; }
+.mapa2d[data-antes] .m2d-fio, .mapa2d[data-antes] .m2d-pulso { opacity: 0; }
+.mapa2d[data-parado] .m2d-gota, .mapa2d[data-parado] .m2d-gota::after, .mapa2d[data-parado] .m2d-pulso { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .m2d-gota, .m2d-gota::after { animation: none; }
+  .m2d-pulso { animation: none; stroke-dashoffset: -48; opacity: .4; }
+  .m2d-no, .m2d-gota, .m2d-forja { transition: none; }
+}
+
+/* ---------- Identidade visual dentro do site ---------- */
+html[data-pagina="identidade"] #voltar-mapa { display: none; }
+.identidade { background: var(--preto); }
+.identidade__barra { display: flex; flex-wrap: wrap; gap: 0 4px; background: var(--preto); border-bottom: 2px solid var(--grafite); }
+.identidade__link {
+  display: inline-flex; align-items: center; min-height: var(--toque); padding: 6px 16px;
+  font-family: var(--f-geo); font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--giz); text-decoration: none; background: var(--preto);
+}
+.identidade__link:hover, .identidade__link:focus-visible { background: var(--fusao); color: var(--preto); }
+.identidade__link:focus-visible { outline: 3px solid var(--giz); outline-offset: -6px; }
+.identidade__quadro { display: block; width: 100%; height: calc(100svh - var(--topo-h, 64px) - 46px); min-height: 480px; border: 0; background: var(--giz); }
+
+/* ---------- Clarão de têmpera ---------- */
+.clarao {
+  position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at 50% 50%, #fff 0, var(--incand) 35%, var(--fusao) 80%, var(--brasa) 100%);
+}
+
+/* ---------- Folha: voltar ao mapa ---------- */
+.voltar-mapa { background: var(--preto); border-bottom: var(--borda); }
+.voltar-mapa[hidden] { display: none; }
+.voltar-mapa__link {
+  display: flex; align-items: center; min-height: var(--toque); padding: 8px max(16px, env(safe-area-inset-left, 0px));
+  font-family: var(--f-geo); font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--giz); text-decoration: none; background: var(--preto);
+}
+.voltar-mapa__link:hover, .voltar-mapa__link:focus-visible { background: var(--fusao); color: var(--preto); }
+.voltar-mapa__link:focus-visible { outline: 3px solid var(--giz); outline-offset: -6px; }
+
+/* ---------- Página nova entra por fade ---------- */
+@keyframes cbl-entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+#conteudo.entrando { animation: cbl-entra .4s ease-out both; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 640px) {
+  .mapa { min-height: 420px; }
+  .mapa__dica { display: none; }
+  .mapa__info { right: 12px; max-width: none; padding: 5px 9px; font-size: 12px; }
+  .mapa__linha { -webkit-line-clamp: 1; }
+  .rotulo-no { font-size: 11px; padding: 5px 7px; letter-spacing: .05em; white-space: normal; max-width: 128px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #conteudo.entrando { animation-duration: .12s; }
+  .rotulo-no { transition: none; }
+}
+@media print { .mapa, .clarao, .voltar-mapa, .identidade__barra { display: none !important; } }

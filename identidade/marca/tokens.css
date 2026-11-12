@@ -1,0 +1,49 @@
+/* Ciberlurgia, tokens de design v0.3 (09/11/2026)
+   Referência: manual/manual-identidade-visual.html
+   Direção: construtivismo + concreto aparente + metal em fusão + bordado. */
+
+@font-face { font-family: "CBL Estencil"; src: url("fontes/BigShouldersStencil-900-latin.woff2") format("woff2"); font-weight: 900; font-display: swap; }
+@font-face { font-family: "CBL Jost"; src: url("fontes/Jost-700-latin.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "CBL Jost"; src: url("fontes/Jost-500-latin.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "CBL Normografo"; src: url("fontes/Osifont-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+
+:root {
+  /* Base */
+  --preto: #000000;      /* preto graxa: texto, borda, fundo onde o fogo brilha */
+  --concreto: #D2D1CB;   /* fundo claro, sempre com grão */
+  --giz: #F5F4F0;        /* papel, cartões, texto sobre preto */
+  --grafite: #4A4A47;    /* texto secundário sobre claro */
+  --cinza: #8A8984;      /* texto secundário sobre preto, arame frio */
+
+  /* Escala da forja (temperatura aproximada do aço) */
+  --cereja: #6E0000;     /* ~750 °C */
+  --forja: #E8180C;      /* ~900 °C. Texto só sobre preto, ou título grande no claro */
+  --brasa: #FF5A00;      /* ~1.000 °C */
+  --fusao: #FFC400;      /* ~1.100 °C */
+  --incand: #FFF4CF;     /* ~1.300 °C */
+
+  /* Contraponto frio: arco de solda */
+  --arco: #2D2DFF;       /* fundo e linha; texto em giz por cima */
+  --arco-claro: #7C82FF; /* texto e linha sobre preto */
+
+  --fogo: linear-gradient(115deg, var(--cereja) 0%, var(--forja) 28%, var(--brasa) 52%, var(--fusao) 78%, var(--incand) 100%);
+  --fogo-gota: radial-gradient(circle at 34% 28%, var(--incand) 0, var(--fusao) 12%, var(--brasa) 42%, var(--forja) 74%, #9A0A04 100%);
+  --grao-escuro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .55 -.18'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --grao-claro: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .4 -.16'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* Tipografia */
+  --f-estencil: "CBL Estencil", "Arial Narrow", Impact, sans-serif;  /* títulos, palavras de ordem */
+  --f-geo: "CBL Jost", Futura, "Century Gothic", sans-serif;          /* subtítulos, rótulos, botões */
+  --f-tec: "CBL Normografo", Bahnschrift, ui-monospace, monospace;   /* cotas, dados, carimbo */
+  --f-texto: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Estrutura */
+  --borda: 3px solid var(--preto);
+  --sombra: 7px 7px 0 var(--preto);
+  --bordado: url("bordado-cinza-480.webp"); /* textura em cinza: pintar com fundo de cor + mix-blend-mode: multiply */
+  --toque: 44px;
+}
+
+.faixa-preta { background: var(--grao-claro), var(--preto); color: var(--giz); }
+.faixa-concreto { background: var(--grao-escuro), var(--concreto); color: var(--preto); }
+.faixa-giz { background: var(--giz); color: var(--preto); }

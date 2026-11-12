@@ -1,0 +1,34 @@
+[
+    {
+        "id": "carlos-grande",
+        "nome": "Carlos Grande",
+        "funcao": "Bancada de produção",
+        "bio": "Integrante da Ciberlurgia, mora e trabalha no ABC Paulista. Texto provisório: a bio definitiva entra pelo painel.",
+        "foto": "",
+        "contatos": []
+    },
+    {
+        "id": "jessica-garcia",
+        "nome": "Jéssica Garcia da Cruz Morais",
+        "funcao": "Bancada de articulação e território",
+        "bio": "Integrante da Ciberlurgia, mora e trabalha no ABC Paulista. Texto provisório: a bio definitiva entra pelo painel.",
+        "foto": "",
+        "contatos": []
+    },
+    {
+        "id": "neri-silvestre",
+        "nome": "Neri Silvestre",
+        "funcao": "Bancada de memória e formação",
+        "bio": "Integrante da Ciberlurgia, mora e trabalha no ABC Paulista. Texto provisório: a bio definitiva entra pelo painel.",
+        "foto": "",
+        "contatos": []
+    },
+    {
+        "id": "ricardo-palmieri",
+        "nome": "Ricardo Palmieri",
+        "funcao": "Bancada de arte e tecnologia",
+        "bio": "Integrante da Ciberlurgia, mora e trabalha no ABC Paulista. Texto provisório: a bio definitiva entra pelo painel.",
+        "foto": "",
+        "contatos": []
+    }
+]
