@@ -24,12 +24,17 @@ function base_valida(string $b): string {
     return $b !== '/' && preg_match('#^(?:/[A-Za-z0-9._~-]+)+$#', $b) && !str_contains($b, '..') ? $b : '';
 }
 
-function detectar_base(): string {
+/** privado/config.php (opcional): ['base' => '', 'url' => 'https://...', 'email_contato' => '...', 'email_remetente' => '...']. */
+function config(): array {
+    static $c = null;
+    if ($c !== null) return $c;
     $cfg = DIR_PRIVADO . '/config.php';
-    if (is_file($cfg)) {
-        $c = (static fn() => @include $cfg)();
-        if (is_array($c) && isset($c['base'])) return base_valida((string) $c['base']);
-    }
+    $v = is_file($cfg) ? (static fn() => @include $cfg)() : null;
+    return $c = is_array($v) ? $v : [];
+}
+
+function detectar_base(): string {
+    if (isset(config()['base'])) return base_valida((string) config()['base']);
     $docroot = (string) ($_SERVER['DOCUMENT_ROOT'] ?? '');
     $raizReal = realpath(RAIZ);
     $docReal = $docroot !== '' ? realpath($docroot) : false;
@@ -47,6 +52,49 @@ function detectar_base(): string {
 }
 
 define('BASE', detectar_base());
+
+/* Endereço oficial e e-mail do coletivo (dá para trocar em privado/config.php sem mexer no código). */
+define('URL_SITE', rtrim((string) (config()['url'] ?? 'https://ciberlurgia.org'), '/'));
+define('EMAIL_CONTATO', (string) (config()['email_contato'] ?? 'contato@ciberlurgia.org'));
+
+/** Endereço absoluto no domínio oficial (para og:image, canonical, sitemap). */
+function url_absoluta(string $caminho): string {
+    return URL_SITE . $caminho;
+}
+
+/** Envia e-mail em texto puro pelo mail() do servidor (Hostinger). Remetente do próprio domínio, para não cair no spam.
+    Nada do visitante entra em cabeçalho sem passar por limpeza (sem quebra de linha: evita injeção de cabeçalho). */
+function enviar_email(string $para, string $assunto, string $corpo, ?string $responderPara = null, string $nomeResp = ''): bool {
+    if (!function_exists('mail') || !filter_var($para, FILTER_VALIDATE_EMAIL)) return false;
+    $limpa = fn(string $s): string => trim(preg_replace('/[\r\n\t\x00-\x1F\x7F]+/', ' ', $s));
+    $remetente = (string) (config()['email_remetente'] ?? EMAIL_CONTATO);
+    if (!filter_var($remetente, FILTER_VALIDATE_EMAIL)) return false;
+    $h = [
+        'From: ' . mb_encode_mimeheader('Site Ciberlurgia', 'UTF-8') . " <$remetente>",
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 8bit',
+        'X-Mailer: Ciberlurgia',
+    ];
+    if ($responderPara !== null && filter_var($limpa($responderPara), FILTER_VALIDATE_EMAIL)) {
+        $n = $limpa(str_replace(['"', '<', '>'], '', $nomeResp));
+        $h[] = 'Reply-To: ' . ($n !== '' ? mb_encode_mimeheader($n, 'UTF-8') . ' ' : '') . '<' . $limpa($responderPara) . '>';
+    }
+    $assunto = mb_encode_mimeheader($limpa($assunto), 'UTF-8');
+    $corpo = str_replace("\r\n", "\n", $corpo);
+    return @mail($para, $assunto, $corpo, implode("\r\n", $h), '-f' . $remetente);
+}
+
+/** IP do visitante resumido (para limite de envio e registro, sem guardar o IP inteiro). */
+function ip_resumido(): string {
+    return substr(hash('sha256', 'cbl-ip|' . ($_SERVER['REMOTE_ADDR'] ?? '?')), 0, 16);
+}
+
+/** E-mail público: o do painel (Site) ou, se vazio, o oficial. */
+function email_publico(): string {
+    $e = trim((string) (ler_colecao('site')['email'] ?? ''));
+    return filter_var($e, FILTER_VALIDATE_EMAIL) ? $e : EMAIL_CONTATO;
+}
 
 /** Caminho interno ("/algo") -> com a base. http(s), mailto, "//", "#âncora" e relativos ficam como estão. */
 function u(string $caminho): string {

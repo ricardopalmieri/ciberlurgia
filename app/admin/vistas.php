@@ -17,7 +17,8 @@ function adm_layout(string $titulo, string $corpo, array $o = []): void {
         . '<a class="pular" href="#conteudo">Pular para o conteúdo</a>'
         . '<header class="topo"><a class="marca" href="' . BASE . '/admin/">Ciberlurgia <span>bancada</span></a>';
     if ($logado && empty($o['sem_nav'])) {
-        echo '<nav aria-label="Principal"><a href="' . BASE . '/admin/">Painel</a><a href="' . BASE . '/admin/galeria">Galeria</a>'
+        $nMsg = count(glob(DIR_PRIVADO . '/mensagens/*.json') ?: []);
+        echo '<nav aria-label="Principal"><a href="' . BASE . '/admin/">Painel</a><a href="' . BASE . '/admin/mensagens">Mensagens' . ($nMsg ? " ($nMsg)" : '') . '</a><a href="' . BASE . '/admin/galeria">Galeria</a>'
             . '<a href="' . BASE . '/admin/usuarios">Usuários</a><a href="' . BASE . '/" target="_blank" rel="noopener">Ver o site</a>'
             . '<form method="post" action="' . BASE . '/admin/sair" class="sair"><input type="hidden" name="_csrf" value="' . e(adm_csrf()) . '">'
             . '<button class="btn peq" type="submit">Sair (' . e($logado) . ')</button></form></nav>';
@@ -54,6 +55,7 @@ function adm_vista_login(?string $erro = null, int $status = 200): void {
         . ($erro ? '<p class="aviso erro" role="alert">' . e($erro) . '</p>' : '')
         . '<form method="post" action="' . BASE . '/admin/entrar" autocomplete="on">'
         . '<input type="hidden" name="_csrf" value="' . e(adm_csrf()) . '">'
+        . '<div class="mel" aria-hidden="true"><label for="f-site">Não preencha</label><input id="f-site" name="site" type="text" tabindex="-1" autocomplete="off"></div>'
         . adm_campo_input('f-usuario', 'Usuário', 'usuario', 'text', ['autocomplete' => 'username', 'required' => true, 'autocapitalize' => 'none', 'spellcheck' => 'false', 'maxlength' => '64'])
         . adm_campo_input('f-senha', 'Senha', 'senha', 'password', ['autocomplete' => 'current-password', 'required' => true, 'maxlength' => (string) ADM_SENHA_MAX])
         . '<button class="btn forte" type="submit">Entrar</button></form></section>';
@@ -108,7 +110,13 @@ function adm_vista_painel(): void {
     foreach (array_slice($c['cliques'], 0, 10, true) as $id => $n) {
         $cliques .= '<li><span>' . e((string) ($titulos[(string) $id] ?? $id)) . '</span><b>' . $n . '</b></li>';
     }
-    $corpo = '<h1>Painel</h1><p>O que você quer editar?</p><ul class="grade">' . $cards . '</ul>'
+    $ant = adm_acesso_anterior((string) adm_logado());
+    $ultimo = $ant ? '<p class="mudo">Sua entrada anterior: ' . e(date('d/m/Y H:i', (int) $ant['t'])) . ', ' . e((string) $ant['ap']) . ', rede ' . e((string) $ant['ip'])
+        . '. Não reconhece? <a href="' . BASE . '/admin/usuarios">Troque a senha</a>.</p>' : '';
+    $nMsg = count(contato_mensagens());
+    $corpo = '<h1>Painel</h1>' . $ultimo
+        . ($nMsg ? '<p><a class="btn" href="' . BASE . '/admin/mensagens">Mensagens do site (' . $nMsg . ')</a></p>' : '')
+        . '<p>O que você quer editar?</p><ul class="grade">' . $cards . '</ul>'
         . '<div class="duas"><section class="cartao"><h2>Mais buscado na Linkoteca</h2>'
         . ($buscas ? '<ol class="ranking">' . $buscas . '</ol>' : '<p class="mudo">Ainda sem buscas registradas.</p>') . '</section>'
         . '<section class="cartao"><h2>Links mais abertos</h2>'
@@ -177,6 +185,44 @@ function adm_vista_usuarios(): void {
         . '<section class="cartao"><h2>Adicionar usuário</h2><form method="post" action="' . BASE . '/admin/usuarios/novo">' . $csrf
         . adm_campo_input('f-novo-nome', 'Nome de usuário (minúsculas, números, ponto, traço)', 'usuario', 'text', ['required' => true, 'autocomplete' => 'off', 'autocapitalize' => 'none', 'pattern' => '[a-z0-9][a-z0-9._-]{2,31}', 'maxlength' => '32'])
         . adm_campo_input('f-novo-senha', 'Senha inicial (mínimo ' . ADM_SENHA_MIN . ' caracteres)', 'senha', 'password', $senhaAttrs + ['autocomplete' => 'new-password'])
-        . '<button class="btn forte" type="submit">Adicionar</button></form></section>';
+        . '<button class="btn forte" type="submit">Adicionar</button></form></section>'
+        . adm_bloco_acessos();
     adm_layout('Usuários', $corpo, ['js' => true]);
+}
+
+/** Últimas entradas no painel (certas e erradas), para o coletivo perceber se tem alguém estranho tentando. */
+function adm_bloco_acessos(): string {
+    $evs = array_reverse(adm_acessos()['eventos']);
+    $falhas24 = count(array_filter($evs, fn($e) => empty($e['ok']) && (int) ($e['t'] ?? 0) > time() - 86400));
+    $linhas = '';
+    foreach (array_slice($evs, 0, 25) as $ev) {
+        $linhas .= '<tr><td>' . e(date('d/m H:i', (int) ($ev['t'] ?? 0))) . '</td><td>' . e((string) ($ev['u'] ?? '')) . '</td>'
+            . '<td>' . (!empty($ev['ok']) ? 'entrou' : '<b class="erro-txt">senha errada</b>') . '</td>'
+            . '<td>' . e((string) ($ev['ap'] ?? '')) . '</td><td>' . e((string) ($ev['ip'] ?? '')) . '</td></tr>';
+    }
+    return '<section class="cartao"><h2>Últimas entradas no painel</h2>'
+        . '<p class="mudo">Tentativas erradas nas últimas 24 h: <b>' . $falhas24 . '</b>. Cada entrada em aparelho novo manda um aviso para ' . e((string) (config()['email_alertas'] ?? EMAIL_CONTATO)) . '.</p>'
+        . ($linhas ? '<div class="tabela-rolagem"><table class="tabela"><thead><tr><th>Quando</th><th>Usuário</th><th>O quê</th><th>Aparelho</th><th>Rede</th></tr></thead><tbody>' . $linhas . '</tbody></table></div>'
+            : '<p class="mudo">Nada registrado ainda.</p>')
+        . '</section>';
+}
+
+function adm_vista_mensagens(): void {
+    $lista = '';
+    foreach (contato_mensagens() as $m) {
+        $resp = 'mailto:' . rawurlencode((string) $m['email']) . '?subject=' . rawurlencode('Re: ' . ($m['assunto'] !== '' ? $m['assunto'] : 'sua mensagem para a Ciberlurgia'));
+        $lista .= '<article class="cartao mensagem"><header class="mensagem__cab"><div>'
+            . '<h2>' . e($m['assunto'] !== '' ? (string) $m['assunto'] : 'Sem assunto') . '</h2>'
+            . '<p class="mudo">' . e((string) $m['nome']) . ' · <a href="' . e($resp) . '">' . e((string) $m['email']) . '</a> · ' . e(date('d/m/Y H:i', strtotime((string) $m['data']) ?: 0))
+            . (empty($m['email_enviado']) ? ' · <b class="erro-txt">não chegou por e-mail</b>' : '') . '</p></div>'
+            . '<form method="post" action="' . BASE . '/admin/mensagens/apagar" data-confirmar="Apagar esta mensagem? Não dá para desfazer.">'
+            . '<input type="hidden" name="_csrf" value="' . e(adm_csrf()) . '"><input type="hidden" name="id" value="' . e((string) $m['id']) . '">'
+            . '<button class="btn peq perigo" type="submit">Apagar</button></form></header>'
+            . '<p class="mensagem__texto">' . nl2br(e((string) $m['mensagem'])) . '</p>'
+            . '<p><a class="btn peq" href="' . e($resp) . '">Responder por e-mail</a></p></article>';
+    }
+    $corpo = '<h1>Mensagens</h1><p>O que chegou pelo formulário de <a href="' . BASE . '/contato/" target="_blank" rel="noopener">contato</a>. '
+        . 'Cada mensagem também vai para ' . e(EMAIL_CONTATO) . '. Ficam guardadas aqui as ' . CONTATO_GUARDAR . ' mais recentes.</p>'
+        . ($lista ?: '<section class="cartao"><p class="mudo">Nenhuma mensagem ainda.</p></section>');
+    adm_layout('Mensagens', $corpo, ['js' => true]);
 }

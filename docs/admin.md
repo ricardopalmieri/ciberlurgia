@@ -36,7 +36,9 @@ Antes de instalar, ative o SSL gratuito no hPanel. Com HTTPS o cookie de login v
 
 **Galeria** (`/admin/galeria`). Imagens enviadas. Aceita JPG, PNG e WebP até 5 MB e 8000 px por lado. O servidor converte tudo para WebP (largura máxima 1600 px, qualidade 82), o que também remove metadados (como GPS da foto). Só dá para excluir imagem que nenhum conteúdo usa.
 
-**Usuários** (`/admin/usuarios`). Trocar a própria senha (pede a atual), adicionar e remover usuários. Não dá para remover a si mesmo nem o último usuário.
+**Usuários** (`/admin/usuarios`). Trocar a própria senha (pede a atual), adicionar e remover usuários. Não dá para remover a si mesmo nem o último usuário. Embaixo, a lista das últimas entradas no painel (certas e erradas), com aparelho e rede.
+
+**Mensagens** (`/admin/mensagens`). O que chega pelo formulário de `/contato/`. Cada mensagem vai para o e-mail de contato e também fica guardada aqui (as 300 mais recentes), com botão para responder e para apagar. Se aparecer "não chegou por e-mail", o servidor não conseguiu mandar: a mensagem está salva mesmo assim.
 
 ## Segurança, em resumo
 
@@ -46,12 +48,41 @@ Antes de instalar, ative o SSL gratuito no hPanel. Com HTTPS o cookie de login v
 - Todo envio (POST) exige token CSRF e origem igual ao próprio site.
 - `privado/`, `app/` e `conteudo/` têm `.htaccess` com `Require all denied`. `uploads/` só serve imagem e não executa script.
 - O painel fala `noindex` e nunca é guardado em cache.
+- Senha nova precisa de 12+ caracteres, não pode ser repetitiva, nem ter o nome de usuário ou palavras óbvias (ciberlurgia, cccd, senha, admin, 123456…).
+- Campo-isca no login: robô que preenche tudo é recusado mesmo com a senha certa.
+- Registro de entradas em `privado/acessos.json` (IP guardado só pela metade, ex.: `189.12.x.x`). Entrada em aparelho ou rede nova manda um aviso por e-mail. Se ninguém reconhecer, troque a senha: isso derruba as outras sessões.
+
+## Formulário de contato e antispam
+
+`/contato/` manda a mensagem para o e-mail oficial pelo `mail()` do servidor, com remetente do próprio domínio e "responder para" a pessoa que escreveu. Sem captcha de terceiros (nada de Google, funciona sem JavaScript):
+
+- campo-isca escondido; ficha assinada com a hora: envio em menos de 4 s, ficha reaproveitada ou com mais de 2 h é recusada;
+- 3 mensagens a cada 10 min e 8 por dia por IP; teto de 60 por dia no site;
+- mais de 3 links, códigos `[url]`/HTML ou link no nome são recusados.
+
+Robô pego pela isca ou pela ficha recebe "enviado" de mentira e nada é gravado.
+
+## Endereço oficial e e-mail
+
+O código já vem com `https://ciberlurgia.org` (usado no `canonical`, na imagem de compartilhamento e no `sitemap.xml`) e `contato@ciberlurgia.org`. O e-mail que aparece no rodapé é o do painel (Textos gerais → E-mail de contato); vazio, vale o oficial. Para trocar sem mexer no código, use `privado/config.php`:
+
+```php
+<?php return [
+    'url' => 'https://ciberlurgia.org',
+    'email_contato' => 'contato@ciberlurgia.org',     // recebe o formulário
+    'email_remetente' => 'contato@ciberlurgia.org',   // "From" dos e-mails (precisa ser do domínio)
+    'email_alertas' => 'contato@ciberlurgia.org',     // avisos de entrada no painel ('' desliga)
+];
+```
+
+Na Hostinger, a caixa `contato@ciberlurgia.org` precisa existir (hPanel → E-mails) para o `mail()` entregar bem. Depois de publicar, mande uma mensagem de teste pelo formulário.
 
 ## Arquivos
 
 - `app/admin/`: o código do painel (roteador, segurança, páginas, API).
 - `assets/admin/admin.js` e `admin.css`: a interface.
-- `privado/usuarios.php`, `privado/sessoes/`, `privado/tentativas.json`, `privado/backups/`: dados do painel. Faça backup de `privado/` e de `conteudo/` e `uploads/` de vez em quando.
+- `app/contato.php`: formulário de contato e antispam.
+- `privado/usuarios.php`, `privado/sessoes/`, `privado/tentativas.json`, `privado/acessos.json`, `privado/mensagens/`, `privado/backups/`: dados do painel. Faça backup de `privado/` e de `conteudo/` e `uploads/` de vez em quando.
 
 ## Rodar em subpasta ou na raiz
 

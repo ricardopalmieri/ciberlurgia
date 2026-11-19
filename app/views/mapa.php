@@ -68,6 +68,7 @@ function mapa_da_pagina(string $pagina, array $ctx = []): ?array {
             }
             $nos[] = $no('manifesto', 'Manifesto', 'A ferramenta é de quem usa.', '/manifesto/', 'cereja');
             $nos[] = $no('identidade', 'Identidade visual', 'O manual com marca, cores, fontes e o jeito de aplicar.', '/identidade/', 'fusao');
+            $nos[] = $no('contato', 'Contato', 'Escreva para a bancada.', '/contato/', 'arco');
             $titulo = 'Coletivo';
             break;
 

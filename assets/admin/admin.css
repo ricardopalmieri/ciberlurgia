@@ -154,3 +154,14 @@ dialog.modal::backdrop{background:rgba(0,0,0,.65)}
   .editor-acoes .btn{flex:1 1 auto}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* pote de mel do login: fora da tela */
+.mel{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.erro-txt{color:var(--erro)}
+.tabela-rolagem{overflow-x:auto}
+.tabela{width:100%;border-collapse:collapse;font-size:14px}
+.tabela th,.tabela td{text-align:left;padding:6px 8px;border-bottom:2px dashed var(--preto);white-space:nowrap}
+.tabela th{font-family:var(--f-geo)}
+.mensagem__cab{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.mensagem__cab h2{margin:0 0 4px;overflow-wrap:anywhere}
+.mensagem__cab form{margin:0}
+.mensagem__texto{white-space:normal;overflow-wrap:anywhere;border-left:4px solid var(--preto);padding-left:12px}

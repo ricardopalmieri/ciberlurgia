@@ -6,6 +6,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/seguranca.php';
 require_once __DIR__ . '/vistas.php';
 require_once __DIR__ . '/api.php';
+require_once __DIR__ . '/../contato.php';
 
 adm_cabecalhos();
 
@@ -36,6 +37,7 @@ if ($adm_rota === 'entrar') {
     adm_exigir_post_seguro();
     $usuario = adm_normalizar_nome((string) ($_POST['usuario'] ?? ''));
     $senha = (string) ($_POST['senha'] ?? '');
+    $robo = trim((string) ($_POST['site'] ?? '')) !== '';   // pote de mel: gente não vê esse campo
     $espera = adm_reservar_tentativa($usuario);
     if ($espera > 0) {
         adm_vista_login('Muitas tentativas. Espere ' . (int) ceil($espera / 60) . ' minuto(s) e tente de novo.', 429);
@@ -46,11 +48,13 @@ if ($adm_rota === 'entrar') {
     $hash = $existe ? (string) ($todos[$usuario]['hash'] ?? '') : adm_hash_falso();
     if ($hash === '') $hash = adm_hash_falso();
     $senhaOk = password_verify(mb_substr($senha, 0, ADM_SENHA_MAX), $hash);
-    if (!$existe || !$senhaOk) {
+    if (!$existe || !$senhaOk || $robo) {
+        adm_registrar_acesso($usuario, false);
         adm_vista_login('Usuário ou senha incorretos.', 401);
         exit;
     }
     adm_liberar_tentativa($usuario);
+    adm_registrar_acesso($usuario, true);
     if (password_needs_rehash($hash, adm_algoritmo())) {
         $novo = adm_hash_senha($senha);
         adm_alterar_usuarios(function (array $u) use ($usuario, $novo) {
@@ -78,7 +82,7 @@ if ($adm_rota === 'instalar') {
     $usuario = adm_normalizar_nome((string) ($_POST['usuario'] ?? ''));
     $senha = (string) ($_POST['senha'] ?? '');
     $erro = !adm_nome_valido($usuario) ? 'Usuário inválido: use 3 a 32 caracteres (minúsculas, números, ponto, traço).'
-        : (adm_erro_senha($senha) ?? ($senha !== (string) ($_POST['senha2'] ?? '') ? 'As senhas não são iguais.' : null));
+        : (adm_erro_senha($senha, $usuario) ?? ($senha !== (string) ($_POST['senha2'] ?? '') ? 'As senhas não são iguais.' : null));
     if ($erro) { adm_vista_instalar($erro, 422); exit; }
     adm_alterar_usuarios(function (array $u) use ($usuario, $senha) {
         if ($u) throw new RuntimeException('Já instalado');
@@ -109,6 +113,12 @@ if ($adm_rota === 'sair') {
 if ($adm_rota === '') { adm_so('GET', $adm_post); adm_vista_painel(); exit; }
 if ($adm_rota === 'galeria') { adm_so('GET', $adm_post); adm_vista_galeria(); exit; }
 if ($adm_rota === 'usuarios') { adm_so('GET', $adm_post); adm_vista_usuarios(); exit; }
+if ($adm_rota === 'mensagens') { adm_so('GET', $adm_post); adm_vista_mensagens(); exit; }
+if ($adm_rota === 'mensagens/apagar') {
+    adm_so('POST', $adm_post);
+    adm_flash(contato_apagar((string) ($_POST['id'] ?? '')) ? 'Mensagem apagada.' : 'Mensagem não encontrada.', 'ok');
+    adm_redirecionar('/admin/mensagens');
+}
 
 if (preg_match('#^colecao/([a-z]{1,30})$#', $adm_rota, $m) && isset(esquemas()[$m[1]])) {
     adm_so('GET', $adm_post);
@@ -127,7 +137,7 @@ if (str_starts_with($adm_rota, 'usuarios/')) {
             $nova = (string) ($_POST['nova'] ?? '');
             if (!password_verify(mb_substr($atual, 0, ADM_SENHA_MAX), (string) ($todos[$eu]['hash'] ?? adm_hash_falso()))) {
                 adm_flash('A senha atual não confere.', 'erro');
-            } elseif ($erro = adm_erro_senha($nova)) {
+            } elseif ($erro = adm_erro_senha($nova, $eu)) {
                 adm_flash($erro, 'erro');
             } elseif ($nova !== (string) ($_POST['nova2'] ?? '')) {
                 adm_flash('As senhas novas não são iguais.', 'erro');
@@ -147,7 +157,7 @@ if (str_starts_with($adm_rota, 'usuarios/')) {
                 adm_flash('Usuário inválido: use 3 a 32 caracteres (minúsculas, números, ponto, traço).', 'erro');
             } elseif (isset(adm_usuarios()[$nome])) {
                 adm_flash('Esse usuário já existe.', 'erro');
-            } elseif ($erro = adm_erro_senha($senha)) {
+            } elseif ($erro = adm_erro_senha($senha, $nome)) {
                 adm_flash($erro, 'erro');
             } else {
                 $h = adm_hash_senha($senha);

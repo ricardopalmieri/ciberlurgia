@@ -57,6 +57,9 @@ switch (true) {
     case $rota === 'manifesto' && count($partes) === 1:   vista_pagina('manifesto', 'coletivo'); break;
     case $rota === 'diario' && count($partes) === 1:      vista_diario(); break;
     case $rota === 'diario' && count($partes) === 2:      vista_post($partes[1]); break;
+    case $rota === 'contato' && count($partes) === 1:
+        require __DIR__ . '/app/contato.php'; vista_contato(); break;
+    case $rota === 'sitemap.xml':                          vista_sitemap(); break;
     case $rota === 'identidade' && count($partes) === 1:
         require __DIR__ . '/app/views/identidade.php'; vista_identidade(); break;
     case $rota === 'identidade' && ($partes[1] ?? '') === 'padroes' && count($partes) === 2:

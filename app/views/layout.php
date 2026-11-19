@@ -16,7 +16,9 @@ function layout(string $titulo, string $pagina, string $html, array $o = []): vo
         'ferramentas' => 'Ferramentas',
         'coletivo' => 'Coletivo',
         'diario' => 'Diário',
+        'contato' => 'Contato',
     ];
+    $email = email_publico();
     $secao = $o['secao'] ?? $pagina;
     if (!empty($o['status'])) http_response_code($o['status']);
     header('Content-Type: text/html; charset=utf-8');
@@ -30,7 +32,16 @@ function layout(string $titulo, string $pagina, string $html, array $o = []): vo
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="<?= e($tituloCompleto) ?>">
 <meta property="og:description" content="<?= e($desc) ?>">
-<meta property="og:image" content="<?= e(u('/assets/img/selo-512.webp')) ?>">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="<?= e($nome) ?>">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="<?= e(url_absoluta(caminho_requisicao())) ?>">
+<meta property="og:image" content="<?= e(url_absoluta('/assets/img/og-ciberlurgia.jpg')) ?>">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Selo da Ciberlurgia: CCCD bordado em creme sobre vermelho">
+<meta name="twitter:card" content="summary_large_image">
+<?php if (empty($o['status'])): ?><link rel="canonical" href="<?= e(url_absoluta(caminho_requisicao())) ?>"><?php endif ?>
 <link rel="icon" href="<?= e(u('/assets/img/mini-128.webp')) ?>" type="image/webp">
 <link rel="preload" href="<?= e(u('/assets/fonts/cbl-estencil-900.woff2')) ?>" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="<?= e(versao_asset('/assets/css/cbl.css')) ?>">
@@ -85,7 +96,8 @@ $ehFolha = !$paiFolha['mapa'] && $paiFolha['pai'];
       <p><?= e($site['rodape'] ?? '') ?></p>
     </div>
     <ul class="rodape__links">
-      <?php if (!empty($site['email'])): ?><li><a href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a></li><?php endif ?>
+      <li><a href="<?= e(u('/contato/')) ?>" data-transicao>Fale com a gente</a></li>
+      <li><a href="mailto:<?= e($email) ?>"><?= e($email) ?></a></li>
       <?php foreach ($site['redes'] ?? [] as $r): ?><li><a href="<?= e(u($r['url'])) ?>" rel="noopener" target="_blank"><?= e($r['rotulo']) ?></a></li><?php endforeach ?>
     </ul>
     <ul class="rodape__links">

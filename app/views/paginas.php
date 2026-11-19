@@ -262,7 +262,7 @@ function vista_coletivo(): void {
 <?php endif ?>
 <section class="faixa faixa-giz">
   <div class="wrap identidade-chamada">
-    <img src="<?= e(u('/assets/img/selo-256.webp')) ?>" alt="" width="160" height="160" loading="lazy">
+    <span class="gota gota--fusao" aria-hidden="true"></span>
     <div>
       <h2 class="titulo-secao">Identidade visual</h2>
       <p>O manual com marca, cores, fontes e o jeito de aplicar tudo isso. O material é livre: pode estudar, copiar e adaptar.</p>
@@ -331,6 +331,17 @@ function vista_post(string $slug): void {
         return;
     }
     vista_404();
+}
+
+/* ---------------- Sitemap (para buscadores, no domínio oficial) ---------------- */
+
+function vista_sitemap(): void {
+    $urls = ['/', '/linkoteca/', '/ferramentas/', '/coletivo/', '/manifesto/', '/diario/', '/contato/', '/identidade/'];
+    foreach (posts_publicados() as $p) $urls[] = '/diario/' . $p['slug'] . '/';
+    header('Content-Type: application/xml; charset=utf-8');
+    echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    foreach ($urls as $c) echo '  <url><loc>' . e(url_absoluta($c)) . "</loc></url>\n";
+    echo "</urlset>\n";
 }
 
 function vista_404(): void {
