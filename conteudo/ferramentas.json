@@ -48,5 +48,32 @@
             "qr code",
             "divulgação"
         ]
+    },
+    {
+        "id": "editor-de-fotos",
+        "titulo": "Editor de Fotos",
+        "url": "https://www.photopea.com/",
+        "descricao": "Photopea é a versão gratuita e online do Photoshop",
+        "imagem": "",
+        "autoria": "",
+        "tags": [
+            "photoshop",
+            "editor",
+            "fotografia",
+            "imagem",
+            "pixel",
+            "raster",
+            "ferramenta",
+            "online"
+        ]
+    },
+    {
+        "id": "editor-de-pdf",
+        "titulo": "Editor de PDF",
+        "url": "https://tools.pdf24.org/pt/",
+        "descricao": "Editor de PDF gratuito, no seu navegador.",
+        "imagem": "",
+        "autoria": "",
+        "tags": []
     }
 ]

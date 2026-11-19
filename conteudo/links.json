@@ -950,5 +950,192 @@
         ],
         "destaque": false,
         "verificado": ""
+    },
+    {
+        "id": "instituto-da-mulher-negra",
+        "titulo": "Instituto da Mulher Negra",
+        "url": "https://www.geledes.org.br/",
+        "descricao": "Organização da sociedade civil dedicada ao enfrentamento do racismo, do sexismo e de outras formas de discriminação. Atua na defesa dos direitos humanos, na promoção da igualdade racial e de gênero e na valorização das memórias negras, por meio da educação, pesquisa, comunicação e incidência em políticas públicas.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "memória e reparação-gênero e cuidado-edu"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-18"
+    },
+    {
+        "id": "rede-nacional-de-bibliotecas-comunitarias-rnbc",
+        "titulo": "Rede Nacional de Bibliotecas Comunitárias - RNBC",
+        "url": "https://rnbc.org.br/",
+        "descricao": "A Rede Nacional de Bibliotecas Comunitárias - RNBC é um movimento pela democratização do acesso ao livro, à leitura, à literatura e às bibliotecas sob a perspectiva da leitura como direito humano, com atuação em diversas cidades do território brasileiro.",
+        "categoria": "portais-conselhos",
+        "cidade": "Brasil",
+        "tags": [
+            "bibliotecas-biblioteca comunitaria-rede"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-18"
+    },
+    {
+        "id": "guia-dos-arquivos-que-nao-existem",
+        "titulo": "Guia dos arquivos que não existem",
+        "url": "https://www.acervosdigitais.fau.usp.br/por-que-escrever-um-guia-dos-arquivos-que-nao-existem/",
+        "descricao": "Reflexão sobre arquivos digitais, memórias que ficam de fora e formas de preservá-las.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "memória",
+            "arquivos digitais",
+            "preservação",
+            "acervos"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "beatriz-nascimento-enciclopedia-de-antropologia-da-usp",
+        "titulo": "Beatriz Nascimento | Enciclopédia de Antropologia da USP",
+        "url": "https://ea.fflch.usp.br/autor/beatriz-nascimento",
+        "descricao": "Trajetória e ideias da historiadora, incluindo quilombo, memória comunitária e resistência negra.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "beatriz nascimento",
+            "quilombo",
+            "memória negra",
+            "antropologia"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "acervos-do-museu-afro-brasil-emanoel-araujo",
+        "titulo": "Acervos do Museu Afro Brasil Emanoel Araujo",
+        "url": "https://museuafrobrasil.org.br/acervos/",
+        "descricao": "Consulta a coleções de arte, história e religiosidades afro-brasileiras.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "museu afro brasil",
+            "acervo",
+            "memória afro-brasileira",
+            "cultura negra"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "acervo-digital-do-memorial-da-resistencia",
+        "titulo": "Acervo Digital do Memorial da Resistência",
+        "url": "https://memorialdaresistenciasp.org.br/acervo-digital/",
+        "descricao": "Documentos, imagens, entrevistas e lugares ligados às memórias da repressão e da resistência política.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "memória",
+            "resistência",
+            "ditadura",
+            "acervo digital"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "cultura-viva-perguntas-frequentes",
+        "titulo": "Cultura Viva | Perguntas frequentes",
+        "url": "https://www.gov.br/culturaviva/pt-br/acesso-a-informacao/perguntas-frequentes-2/1",
+        "descricao": "Explica a política Cultura Viva e o papel dos Pontos e Pontões de Cultura.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "cultura viva",
+            "pontos de cultura",
+            "política cultural",
+            "brasil"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "cadastro-nacional-de-pontos-e-pontoes-de-cultura",
+        "titulo": "Cadastro Nacional de Pontos e Pontões de Cultura",
+        "url": "https://www.gov.br/culturaviva/pt-br/cadastro-nacional-cultura-viva",
+        "descricao": "Informações sobre cadastro, certificação e mapa da Rede Cultura Viva.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "pontos de cultura",
+            "cadastro",
+            "certificação",
+            "cultura viva"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "laboratorio-noisetupi",
+        "titulo": "Laboratório Noisetupi",
+        "url": "https://noisetupi.com.br/laboratorio/",
+        "descricao": "Protótipos, ferramentas e experimentações com som, imagem e tecnologia.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "noisetupi",
+            "tecnologia",
+            "ferramentas digitais",
+            "audiovisual"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "curriculo-de-alfabetizacao-midiatica-e-informacional-da-unesco",
+        "titulo": "Currículo de alfabetização midiática e informacional da UNESCO",
+        "url": "https://unesdoc.unesco.org/in/documentViewer.xhtml?ark=/ark:/48223/pf0000220418/PDF/220418por.pdf&file=/in/rest/annotationSVC/DownloadWatermarkedAttachment/attach_import_7796a1a3-1ccd-4512-b6bc-95bdcf64719e?_%3D220418por.pdf&id=p::usmarcdef_0000220418&locale=en&multi=true&v=2.1.196",
+        "descricao": "Material para professores sobre leitura crítica das mídias e uso responsável da informação.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "educação",
+            "alfabetização midiática",
+            "informação",
+            "unesco"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "guia-para-producoes-audiovisuais-acessiveis",
+        "titulo": "Guia para Produções Audiovisuais Acessíveis",
+        "url": "https://inclua.ipea.gov.br/recurso/guia-para-producoes-audiovisuais-acessiveis/",
+        "descricao": "Orientações sobre audiodescrição, legendas para pessoas surdas e ensurdecidas e janela de Libras.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "acessibilidade",
+            "audiovisual",
+            "libras",
+            "legendagem",
+            "audiodescrição"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
+    },
+    {
+        "id": "guia-pratico-de-acessibilidade-cultural-pnab",
+        "titulo": "Guia Prático de Acessibilidade Cultural | PNAB",
+        "url": "https://inclua.ipea.gov.br/recurso/guia-pratico-de-acessibilidade-cultural-pnab/",
+        "descricao": "Referência sobre acessibilidade em projetos culturais.",
+        "categoria": "recursos",
+        "cidade": "Brasil",
+        "tags": [
+            "acessibilidade",
+            "cultura",
+            "pnab",
+            "inclusão"
+        ],
+        "destaque": false,
+        "verificado": "2026-11-13"
     }
 ]
